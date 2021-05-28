@@ -1,4 +1,5 @@
 ﻿using ConsoleGame.Entities;
+using ConsoleGame.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,8 @@ namespace ConsoleGame
         public void Start()
         {
             Console.WriteLine("Start");
-            var player = new Player();
+            var player = new Player(CharacterClass.Warrior);
+
             var enemy = new Enemy();
             
 
