@@ -7,6 +7,8 @@ namespace ConsoleGame.Entities
 {
     public class Player
     {
+        private const int baseHealth = 100;
+        private const int baseDamage = 1;
 
         public CharacterClass PlayerClass;
 
@@ -19,24 +21,30 @@ namespace ConsoleGame.Entities
         private int intelligence;
         public int Intelligence
         {
-            get { return Intelligence; }
+            get { return intelligence; }
         }
 
         private int constitution;
         public int Constitution
         {
-            get { return Constitution; }
+            get { return constitution; }
         }
 
         private int health;
 
         public Player(CharacterClass charClass)
         {
-            Health = 100;
+            
             PlayerClass = charClass;
 
             GenerateStats();
+            InitHealth();
             PrintStats();
+        }
+
+        private void InitHealth()
+        {
+            Health = Constitution * baseHealth;
         }
 
         public int Health
@@ -85,13 +93,16 @@ namespace ConsoleGame.Entities
         }
         public void Attack(Enemy enemy)
         {
-            enemy.TakeDamage(GetDamage());
+            enemy.TakeDamage(Damage);
 
         }
 
-        private int GetDamage()
+        private int Damage
         {
-            return 10;
+            get
+            {
+                return baseDamage * Strength;
+            }
         }
 
         public bool IsAlive
