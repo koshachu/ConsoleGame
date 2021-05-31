@@ -7,12 +7,27 @@ namespace ConsoleGame.Entities
 {
     public class Player
     {
-        
+
         public CharacterClass PlayerClass;
 
         private int strength;
+        public int Strength
+        {
+            get { return strength; }
+        }
+
         private int intelligence;
+        public int Intelligence
+        {
+            get { return Intelligence; }
+        }
+
         private int constitution;
+        public int Constitution
+        {
+            get { return Constitution; }
+        }
+
         private int health;
 
         public Player(CharacterClass charClass)
@@ -41,7 +56,7 @@ namespace ConsoleGame.Entities
         private void PrintStats()
         {
             Console.WriteLine($"strength = {strength}, intelligence = {intelligence}, constitution = {constitution}");
-            
+
         }
 
         private void GenerateStats()
@@ -71,7 +86,7 @@ namespace ConsoleGame.Entities
         public void Attack(Enemy enemy)
         {
             enemy.TakeDamage(GetDamage());
-            
+
         }
 
         private int GetDamage()
@@ -87,7 +102,7 @@ namespace ConsoleGame.Entities
             }
         }
 
-
+        
 
 
 
